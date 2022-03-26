@@ -1,0 +1,2 @@
+#!/system/zbin/bash 
+echo -e "$@ \n" | lolcat  

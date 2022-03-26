@@ -1,0 +1,198 @@
+#!/system/zbin/bash
+clear
+menu(){
+center "Welcome To Sos"
+logo "Main-Menu"
+center "GhostXOfficial"
+echo 
+cout "[ Main Menu Of (sos) ]"
+sleep 0.1
+cout "[1] Extreme Mode."
+sleep 0.1
+cout "[2] Game-Center."
+sleep 0.1
+cout "[3] Img2Folder/Folder2Img."
+sleep 0.1
+cout "[4] Miscellaneous functions."
+sleep 0.1
+cout "[5] System Tweaks."
+sleep 0.1
+cout "[6] Auto-Timer PowerOff."
+sleep 0.1
+cout "[e] Exit from sos."
+sleep 0.1
+cout "[a]About_SOS."  
+echo -e "\e[93;1m"
+read -p "Enter your Option :- " c 
+echo -e "\e[0m"
+clear 
+case $c in 
+1)
+bash /system/ghost/script/extreme
+;;
+2)
+clear
+game(){
+center "Welcome"
+logo "Game-Center"
+center "Heheboi"
+echo 
+cout "1] Ghost Recoder(video only)."
+cout "2] Return To Main Menu." 
+cout "3] Exit." 
+echo -e "\e[93;1m"
+read -p "Enter The Option:- " c 
+echo -e "\e[0m"
+clear 
+case $c in 
+1)
+bash /system/ghost/script/game/recoder 
+;;
+2)
+bash /system/ghost/script/menu ;; 
+3)
+exit 
+;;
+*)
+cout "AH Boi Here We Go Again."
+sleep 0.7
+clear 
+game
+;;
+esac 
+}
+game
+;;
+3)
+bash /system/ghost/script/img 
+;;
+4)
+misc(){
+center "Welcome"
+logo "Miscellaneous"
+center "Heheboi"
+echo 
+cout "1]Partition Mounter."
+cout "2]Data Re-size." 
+cout "3]System Re-size." 
+cout "4]Google Service."
+cout "5]Return to Main menu."
+cout "6]Exit."
+echo -e "\e[93;1m"
+read -p "Enter The Option:- " c 
+echo -e "\e[0m"
+clear
+case $c in 
+1)
+bash /system/ghost/script/misc/part 
+;;
+2)
+bash /system/ghost/script/misc/data ;;
+3)
+bash /system/ghost/script/misc/system ;;
+4)
+bash /system/ghost/script/misc/google ;;
+5)
+bash /system/ghost/script/menu 
+;;
+6)
+exit 
+;;
+*)
+cout "Ah Boi Here We Go Again."
+sleep 0.7
+clear 
+misc
+;;
+esac 
+}
+misc
+;;
+5)
+system_tweaks(){
+center "Welcome"
+logo "System-Tweaks"
+center "Heheboi"
+echo 
+cout "1]Animations." 
+cout "2]Cache." 
+cout "3]Init-Fix."
+cout "4]Resolution."
+cout "5]Return to Main Menu."
+cout "[e]Exit."
+echo 
+echo -e "\e[93;1m"
+read -p "Enter The Option Here:- " c 
+echo -e "\e[0m"   
+clear 
+case $c in 
+1)
+bash /system/ghost/script/systemtweaks/ani 
+;;
+2)
+bash /system/ghost/script/systemtweaks/cache 
+;;
+3)
+bash /system/ghost/script/systemtweaks/init 
+;;
+4)
+bash /system/ghost/script/systemtweaks/resolution
+;;
+5)
+clear 
+bash /system/ghost/script/menu
+;;
+e)
+exit 
+;;
+*)
+cout "Ah Boi Here We go Again....!"
+sleep 0.7
+clear 
+system_tweaks
+;;
+esac
+}
+system_tweaks
+;;
+6)
+bash /system/ghost/script/poweroff
+;;
+e)
+exit 
+;;
+a)
+bash /system/ghost/script/about
+;;
+s)
+bash /system/ghost/script/status
+;;
+b) 
+if [ -f /system/ghost/sounds/sos.bak ]; then 
+st=$(echo on )
+else
+st=$(echo off)
+fi
+if [ -f /system/ghost/sounds/sos.sos ]; then 
+mv /system/ghost/sounds/sos.sos /system/ghost/sounds/sos.bak > /dev/null 2>&1
+mv /system/ghost/sounds/done.sos /system/ghost/sounds/done.bak > /dev/null 2>&1
+cout "Sound Off..!"
+sleep 1
+menu 
+else 
+mv /system/ghost/sounds/sos.bak /system/ghost/sounds/sos.sos > /dev/null 2>&1  
+mv /system/ghost/sounds/done.bak /system/ghost/sounds/done.sos > /dev/null 2>&1
+cout "Sound On..!"
+sleep 1
+menu 
+fi
+;;
+*)
+cout "Ah Boi Here We Go Again..!"
+sleep 1
+clear 
+menu 
+;;
+esac 
+}
+menu 

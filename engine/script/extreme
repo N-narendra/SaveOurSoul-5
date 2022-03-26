@@ -1,0 +1,352 @@
+#!/system/zbin/bash
+C1="\e[31;1m"
+C2="\e[32;1m"
+C3="\e[33;1m"
+C4="\e[34;1m"
+C5="\e[35;1m"
+C6="\e[36;1m"
+CD="\e[0m"
+enable(){
+cout "[ ENABLING EXTREME MODE ]"
+if [ -d /system/app/com.n0n3m4.gltools-1 ]; then
+pm clear com.n0n3m4.gltools
+elif [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+pm clear com.n0n3m4.gltools
+else
+pm disable com.android.vending > /dev/null 2>&1
+pm install -g /system/ghost/etc/security/cacerts/intel/proxy/GLTools.apk > /dev/null 2>&1 
+fi
+cout "[ CHOOSE YOUR TEMPLATE ]"
+cout "[1] MALI-G72 HYBRID."
+cout "[2] ADRENO 650."
+cout "[3] APPLE A13."
+cout "[4] TEGRA SHIELD 4."
+cout "[5] MALI T860."
+cout "[6] G6430."
+cout "[7] MALI G76 (MOST STABLE FROM MALI, BETTER FOR ALL DEVICES)."
+cout "[8] CUSTOM TEMPLATE (PUT gl.zip in ghost)"
+cout "[e] Exit."
+echo -e "\e[92;1m"
+read -p "Enter your Choice :-" C 
+echo -e "\e[0m"
+clear
+case $C in
+1)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/2
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+2)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/3
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+3)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/4
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+4)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/5
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+5)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/6
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+6)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/7
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+7)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+cd /system/ghost/etc/security/cacerts/intel/proxy/global/8
+rsync -aq uid_all.glt /data/data/com.n0n3m4.gltools/files/
+rsync -aq uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+8)
+cout "[ INJECTING FAKE-GPU... ]"
+monkey -p com.n0n3m4.gltools -c android.intent.category.LAUNCHER 1
+sleep 3
+am force-stop com.n0n3m4.gltools
+pm enable com.android.vending
+if [ -e /data/media/0/ghost/gl.zip ]; then
+cd  /data/media/0/ghost
+unzip -oq gl
+cd /data/media/0/ghost
+mv -f uid_all.glt /data/data/com.n0n3m4.gltools/files/
+cd /data/media/0/ghost
+mv -f uid_all.xml /data/data/com.n0n3m4.gltools/shared_prefs/
+cd /data/data/com.n0n3m4.gltools/files
+chmod 755 uid_all.glt
+cd /data/data/com.n0n3m4.gltools/shared_prefs
+chmod 755 uid_all.xml
+else
+cout "[ Custom Temaplate not found, Ask Developer for More Info ]"
+sleep 3
+fi
+if [ -d /data/app/com.n0n3m4.gltools-1 ]; then
+cd /data/app
+mv -f com.n0n3m4.gltools-1 /system/app/
+find /system/app -type d -exec chmod 755 {} \;
+find /system/app/com.n0n3m4.gltools-1 -type f -exec chmod 644 {} \;
+fi
+;;
+e)
+exit 
+;;
+*)
+cout "Wrong Input Boi....!"
+sleep 1
+clear
+enable 
+;;
+esac
+cout "[ UPDATING LIBS ]"
+if [ -e /system/lib/libEGL_orig.so ]; then
+cd /system/ghost/etc/security/cacerts/intel/proxy
+rsync -aq uninstall_gltools.zip /data/media/0/
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib
+find -type f -exec chmod 644 {} \;
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib
+rsync -aq *.so /system/lib
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib64
+find -type f -exec chmod 644 {} \;
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib64
+rsync -aq *.so /system/lib64
+sleep 3
+cout "HeHe Boi...!" &
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m$sec\e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot
+else
+cd /system/ghost/etc/security/cacerts/intel/proxy
+rsync -aq uninstall_gltools.zip /data/media/0/
+cd /system/lib
+mv -f libEGL.so libEGL_orig.so
+cd /system/lib
+mv -f libGLESv1_CM.so libGLESv1_CM_orig.so
+cd /system/lib
+mv -f libGLESv2.so libGLESv2_orig.so
+cd /system/lib
+mv -f libGLESv3.so libGLESv3_orig.so
+cd /system/lib64
+mv -f libEGL.so libEGL_orig.so
+cd /system/lib64
+mv -f libGLESv1_CM.so libGLESv1_CM_orig.so
+cd /system/lib64
+mv -f libGLESv2.so libGLESv2_orig.so
+cd /system/lib64
+mv -f libGLESv3.so libGLESv3_orig.so
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib
+find -type f -exec chmod 644 {} \;
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib
+rsync -aq *.so /system/lib
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib64
+find -type f -exec chmod 644 {} \;
+cd /system/ghost/etc/security/cacerts/intel/proxy/lib64
+rsync -aq *.so /system/lib64
+sleep 3
+cout "HeHe Boi...!" &
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m$sec\e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot
+fi
+}
+disable(){
+cout "[ DISABLING EXTREME MODE ]"
+cd /system/app
+rm -rf com.n0n3m4.gltools-1
+cd /data/media/0
+rm -f uninstall_gltools.zip
+cd /data/data
+rm -rf com.n0n3m4.gltools
+cd /system/lib
+mv -f libEGL_orig.so libEGL.so
+cd /system/lib
+mv -f libGLESv1_CM_orig.so libGLESv1_CM.so
+cd /system/lib
+mv -f libGLESv2_orig.so libGLESv2.so
+cd /system/lib
+mv -f  libGLESv3_orig.so libGLESv3.so
+cd /system/lib64
+mv -f libEGL_orig.so libEGL.so
+cd /system/lib64
+mv -f libGLESv1_CM_orig.so libGLESv1_CM.so
+cd /system/lib64
+mv -f libGLESv2_orig.so libGLESv2.so
+cd /system/lib64
+mv -f  libGLESv3_orig.so libGLESv3.so
+find /system -type d -exec chmod 755 {} \;
+find /system/lib -type f -exec chmod 644 {} \;
+find /system/lib64 -type f -exec chmod 644 {} \;
+sleep 2
+cout "HeHe Boi...!" &
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m$sec\e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot    
+}
+cli(){
+center "Heheboi"
+logo "Extreme Mode"
+center "Welcome"
+cout "[ MADE BY SPECTRE ]"
+cout "[ THIS SCRIPT IS USED TO OPTIMIZE PUBG GRAPHICS ACCORDING TO CHOICE AND ENABLE EXTREME FPS  ]"
+cout "[ THIS SCRIPT APPLIES SYSTEMWIDE GPU PROXY FEATURED BY GLTOOLS APP, THANKS TO THE DEV ]"
+cout "[ IF YOU'RE USING A TEMPLATE WITH NO EXTREME TAG, USE GFX TOOL BY TSOML, FOR ONCE TO ENABLE 60 FPS FOREVER ]"
+cout "[ NOTE: SHOWING FPS IS DISABLED BY DEFAULT, BUT YOU CAN ENABLE IT MANUALLY VIA GLTOOLS APP AFTER ENABLING EXTREME MODE ]"
+center "[ Select the options below ]"
+echo
+cout "[1] ENABLE EXTREME MODE."
+cout "[2] DISABLE EXTREME MODE."
+cout "[3] Return To Main-Menu."
+cout "[4] Exit."
+echo -e "\e[93;1m"
+read -p "Enter the Option :-" c 
+echo -e "\e[0m"
+clear
+case $c in
+1)
+enable 
+;;
+2)
+disable
+;;
+3)
+bash /system/ghost/script/menu 
+;;
+4)
+exit ;;
+*)
+cout "AH boi Here We Go Again....!"
+sleep 1
+clear
+cli 
+;;
+esac    
+}
+clear
+cli

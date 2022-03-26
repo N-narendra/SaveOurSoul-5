@@ -1,0 +1,78 @@
+#!/system/zbin/bash  
+export TERM=linux DIALOGRC=/system/ghost/etc/dialogrc 
+Sound (){
+    if [ -f /system/ghost/etc/sounds/done.sos ]; then 
+dialog --clear --backtitle "SOS-Sounds" --yesno "Do You Want Disable Sound From SOS ?"  6 41; 
+if [ "$?" = "0" ]; then 
+mv /system/etc/sounds/done.sos /system/ghost/etc/sounds/done.bak;
+dialog --backtitle "SOS-Sounds" --infobox "Sound Sucessfully Disabled..!"  6 41; sleep 2; clear; sos_menu;
+elif [ "$?" = "1" ]; then sos_menu; fi;
+elif [ -f /system/ghost/etc/sounds/done.bak ]; then 
+dialog --clear --backtitle "SOS-Sounds" --yesno "Do You Want Enable Sound From SOS ?"  6 41; 
+if [ "$?" = "0" ]; then 
+mv /system/ghost/etc/sounds/done.bak /system/ghost/etc/sounds/done.sos;
+dialog --backtitle "SOS-Sounds" --infobox "Sound Sucessfully Enabled..!"  6 41; sleep 2; clear; sos_menu
+elif [ "$?" = "1" ]; then sos_menu; fi;
+fi 
+}
+q_reboot (){
+dialog --clear --backtitle "System-Action" --yesno "Do You need to Quick-reboot..?" 6 42;
+if [ "$?" = "0" ]; then 
+dialog --title "Quick Reboot" --nook --nocancel --pause "" 8 41 3 && sync && stop | start;
+elif ["$?" = "1"]; then 
+sos_menu
+fi;    
+}
+sos_menu(){
+inp=(dialog --backtitle "SOS Settigs" --title "Choose Your Action" --ok-label Excute  --cancel-label Exit --menu "\n " 15 60 15)
+m=(1 "USB-Ethernet"
+2 "SOS-Sounds"
+3 "Quick Reboot")
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+for choice in $choices; do
+	case $choice in
+1) bash /system/ghost/script/set/usb ;;
+2) Sound ;;
+3) q_reboot;;
+esac
+done
+if [ "$?" = "1" ]; then clear && cout "Press Alt + f7 To Close tty..!" ; fi ;  
+}
+
+inp=(dialog  --backtitle "Press ESC to enter SOS-Settings" --title "Welcome To SOS"  --keep-tite --ok-label Excute  --cancel-label Exit  --menu "\n " 11 32 15)
+m=(  1 "SOS"
+     2 "Power-OFF"
+     3 "Reboot"
+  )
+ 
+choices=$("${inp[@]}" "${m[@]}" 2>&1 >/dev/tty)
+# esc config
+if [ "$?" = "255" ]; then          
+        sos_menu
+elif [ "$?" = "1" ]; then
+clear && cout "Press Alt + f7 To Close tty..!"      
+fi
+for choice in $choices; do 
+case $choice in 
+1) 
+bash /system/ghost/script/load;;
+2) 
+dialog --clear --backtitle "System-Action" --yesno "Do You Want To ShutDown System..?" 6 41;
+if [ "$?" = "0" ]; then 
+dialog --title "Shutdown" --nook --nocancel --pause "" 8 41 5 && sync && poweroff  
+elif [ "$?" = "1" ]; then 
+sos_menu
+fi ;;
+3)
+dialog --clear --backtitle "System-Action" --yesno "Do You Want To Reboot System..?" 6 41;
+if [ "$?" = "0" ]; then 
+dialog --title "Rebooting" --nook --nocancel --pause "" 8 41 5 && sync && reboot  
+elif [ "$?" = "1" ]; then 
+sos_menu
+fi ;;
+esac
+done
+
+
+
+     

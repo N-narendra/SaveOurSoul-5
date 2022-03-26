@@ -1,0 +1,97 @@
+#!/system/zbin/bash
+C1="\e[31;1m"
+C2="\e[32;1m"
+C3="\e[33;1m"
+C4="\e[34;1m"
+C5="\e[35;1m"
+C6="\e[36;1m"
+CD="\e[0m"
+firmware(){
+if [ -e /data/media/0/ghost/*.ght ]; then
+cout  "FIRMWARE FOUND.....!"
+cout  "INSTALLATION STARTED...!"
+cout  "DECOMPRESSING...!"
+cd /data/media/0/ghost/
+mv *.ght Firmware.ght
+7z x Firmware >/dev/null 2>&1
+cout "[ DECOMPRESSION PROCESS COMPLETED SUCCESSFULLY  ]"
+cd /data/media/0/ghost
+B=/data/media/0/ghost/firmware
+if [ -d "$B" ]; then
+cout  "[ DOWNLOAD SOURCE IS CORRECT! ]"
+cout  "REMOVING OLD DIRECTORIES...!"
+cd /system/lib
+rm -rf firmware
+cout "[ UPDATING FIRMWARE...PLEASE WAIT ]"
+find /data/media/0/ghost -type d -exec chmod 755 {} \;
+find /data/media/0/ghost/firmware -type f -exec chmod 644 {} \;
+rsync -aq /data/media/0/ghost/firmware /system/lib/
+find /data/media/0/ghost -type d -exec chmod 777 {} \;
+find /data/media/0/ghost/firmware -type f -exec chmod 777 {} \;
+cd /storage/emulated/0/ghost
+rm -rf firmware
+cd /storage/emulated/0/ghost
+rm -f *.ght
+cd /storage/emulated/0/ghost
+rm -f fw.txt
+sleep 3
+cout "[ HeHe Boi ]"
+alsa_aplay /system/etc/sounds/done.sos > /dev/null 2>&1
+cout "[ IT NEEDS ABOVE 5 MINUTES FOR NEXT RESTART, PLEASE BE PATIENT ]"
+rm -rf /data/dalvik-cache/*
+sleep 3
+sec=3
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m $sec \e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot
+else
+cout  "\e[98;1m[ FIRMWARE SOURCE IS DIFFERENT, CAN'T UPDATE, PLEASE DOWNLOAD FROM LINKS PROVIDED IN WEBSITE ONLY ; Error 69 ]${CD}${CN}"
+cd /storage/emulated/0/ghost
+rm -f *.ght
+cd /storage/emulated/0/ghost
+rm -f fw.txt
+fi
+else
+cout  "[ FIRMWARE NOT FOUND, PUT FIRMWARE.ght INSIDE ghost ; Error 69 ]"
+fi    
+}
+cli(){
+center "Welcome"
+logo "Firmware"
+center "Heheboi"
+echo
+cout "[ SCRIPT MADE BY SPECTRE  ]"
+cout "[ THIS SCRIPT IS USED TO UPDATE FIRMWARE ]"
+cout "[ NOTE: PLEASE MAKE SURE THERE IS ONLY ONE ZIPPED FIRMWARE IN ghost FOLDER AND NO OTHER PERSONAL FILES ]"
+cout "[ THIS SCRIPT WORKS ONLY GIVEN .ght EXTENTIONS ARE SUPPORTED ]"
+cout "[ TO GET LINKS FOR SUPPORTED FIRMWARES PLEASE CHECK OUR WEBSITE ]"
+cout "[1] Upgrade Firmware."
+cout "[2] Return To Main Menu."
+cout "[3] Exit."
+echo -e "\e[93;1m"
+read -p "Enter The Oprion:- " c 
+echo -e "\e[0m"
+clear
+case $c in 
+1)
+firmware 
+;;
+2)
+bash /system/script/menu
+;;
+3)
+exit 
+;;
+*)
+cout "Ah Boi Here We Go Again....!"
+sleep 1
+clear
+cli
+;;
+esac   
+}
+clear
+cli

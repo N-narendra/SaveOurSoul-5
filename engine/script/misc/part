@@ -1,0 +1,58 @@
+#!/system//zbin/bash 
+C1="\e[31;1m"
+C2="\e[32;1m"
+C3="\e[33;1m"
+C4="\e[34;1m"
+C5="\e[35;1m"
+C6="\e[36;1m"
+blkid_mount(){    
+bd=$(blkid -o "device"| grep -v loop)   
+bm=$(blkid -s "TYPE" -s "LABEL" | grep -v loop) 
+cout "List Of Partition to Mount."
+echo -e "\e[96;1m"
+blkid -o "list"
+echo -e "\e[0m"
+cout "${C3}Select Partition To Mount${CD}${CN}"
+echo -e "\e[96;1m"
+select Partition in ${bd}; 
+do 
+cout "Mounting Partition is ${Partition}";
+mkdir -m777 /sdcard/sosmount > /dev/null 2>&1
+mount  $Partition /sdcard/sosmount/ 
+echo
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+cout "Partition Mounted On /sdcard/sosmount."
+break;
+done
+}
+cli(){
+center "welcome"
+logo "Partition"
+center "Heheboi"  
+echo  
+cout "1] Partition Mounter."
+cout "2] Return To Menu."
+cout "3] Exit."
+echo -e "\e[93;1m"
+read -p "Enter Your Choice:- " c 
+echo -e "\e[0m"
+clear 
+case $c in 
+1)
+blkid_mount 
+;;
+2)
+bash /system/ghost/script/menu 
+;;
+3)
+exit 
+;;
+*)
+cout "Ah Boi Here We Go Again."
+sleep 0.8
+clear 
+cli 
+;;
+esac 
+}
+cli

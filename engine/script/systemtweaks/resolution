@@ -1,0 +1,95 @@
+#!/system/zbin/bash
+C1="\e[31;1m"
+C2="\e[32;1m"
+C3="\e[33;1m"
+C4="\e[34;1m"
+C5="\e[35;1m"
+C6="\e[36;1m"
+CD="\e[0m"
+resolution(){
+cout "[ Your choice is Set Resolution. ]" 
+cout "[ Current is [ $sc ]."
+echo -e "\e[92;1m"
+read -p "Enter The wight_and_Higth [Example:-1024x768]:- " R
+echo -e "\e[0m" 
+cout "[ resolution is "$R" .]" 
+wm size $R
+cout "Heheboi." &
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+cout "[ Press Alt+f7 To close Termianl. ]"  
+}
+resolution_reset(){
+cout "[ Your choice is rest Resolution .]"
+wm size reset
+cout "HeHeboi." &
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+cout "[ Press Alt+f7 To close Termianl.]"    
+}
+dpi(){
+cout "[ Your choice is Set Density [dpi]. ]" 
+cout "[ Current is [ $dc ]"
+echo -e "\e[93;1m"
+read -p "Enter The [dpi] [Example:-120]:- " R
+echo -e "\e[0m"  
+cout "[ resolution is "$R" .]" 
+wm density $R
+cout "Heheboi" &
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+cout "[ Press Alt+f7 To close Termianl. ]"
+}
+dpi_reset(){
+cout "[ Your choice is rest density .]"
+wm density reset
+cout "HeHeboi."
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+cout "[ Press Alt+f7 To close Termianl. ]"    
+}
+cli(){
+center "Welcome"
+logo "Resolution"
+center "Heheboi"  
+echo   
+cout "[ Custom Resolution changer. ]"
+cout "[ Made By Narendra From Ghost team ]"
+sc=$(cat /system/ghost/status/display.txt)
+dc=$(cat /system/ghost/status/density.txt)
+cout "[ Choose The Action here ]"
+cout "1] Set resolution."
+cout "2] Reset resolution."
+cout "3] Set density [dpi]."
+cout "4] Reset density [dpi]."
+cout "5] Return to main menu."
+cout "6] Exit."
+echo -e "\e[93;1m"
+read -p "choose your option :- " c
+echo -e "\e[0m"   
+clear 
+case $c in 
+1)
+resolution
+;;
+2)
+resolution_reset
+;;
+3)
+dpi
+;;
+4)
+dpi_reset
+;;
+5)
+bash /system/ghost/script/menu
+;;
+6)
+exit 
+;;
+*)
+cout "Ah Boi Here We Go Again....!"
+sleep 1
+clear
+cli 
+;;
+esac     
+}
+clear 
+cli

@@ -1,0 +1,53 @@
+#!/system/zbin/bash
+C1="\e[31;1m"
+C2="\e[32;1m"
+C3="\e[33;1m"
+C4="\e[34;1m"
+C5="\e[35;1m"
+C6="\e[36;1m"
+CD="\e[0m"
+init(){
+mv -f /data/media/0/ghost/init.sh /system/etc/
+cd /system/etc
+chmod 755 init.sh
+cout  "[ HeHe Boi ]"
+alsa_aplay /system/etc/sounds/done.sos > /dev/null 2>&1
+cout  "[ REBOOTING ]"
+reboot
+}
+cli(){
+center "Welcome"
+logo "Init-Fixer"
+center "Heheboi"
+echo 
+cout "[ SCRIPT MADE BY SPECTRE ]"
+cout "[ THIS SCRIPT IS USED TO LOAD ALSA PROFILE, LOAD WIFI MODULE (IF EXIST IN KERNEL) ETC. ]"
+cout "[ CAUTION: DON'T USE init.sh FILE FROM OTHER SOURCE, ASK Ghost TEAM ]"
+cout "[ COPY init.sh FILE TO ghost FOLDER ]"
+cout "1] Init_fix."
+cout "2] Return To Main-menu."
+cout "3] Exit."
+echo -e "\e[93;1m"
+read -p "Enter The option:- " c 
+echo -e "\e[0m"
+clear
+case $c in
+1)
+init
+;;
+2)
+bash /system/ghost/script/menu
+;;
+3)
+exit 
+;;
+*)
+cout "Ah Boi Here We Go Again....!"
+sleep 1
+clear 
+cli 
+;;
+esac    
+}
+clear
+cli

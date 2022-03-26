@@ -1,0 +1,90 @@
+#!/system/zbin/bash
+center "Welcome"
+logo "Google-Service"
+center "Heheboi"
+echo 
+cout "Googel Service."
+cout "1]Disbale All Google Service."
+cout "2]Disable GoogleApp Expect(playstore)"
+cout "3]Enable All Service."
+cout "4]Enable Youtube And Chorme."
+cout "5]Return To Main menu."
+cout "6]Exit."
+echo -e "\e[93;1m"
+read -p "Choose You Option Here >" c 
+echo -e "\e[0m"
+clear
+case $c in 
+1)
+cout "All google services will disabled now....!"
+mv /system/app/YouTube/YouTube.apk /system/app/YouTube/YouTube.lol > /dev/null 2>&1 
+pm disable com.android.chrome > /dev/null 2>&1
+pm disable com.android.vending > /dev/null 2>&1
+mv /system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk /system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.lol > /dev/null 2>&1
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+echo 
+cout "Heheboi..!" &
+echo 
+sleep 2
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m $sec \e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot ;; 
+2)
+cout "Disable GoogleApps Expect(playstore)...!"
+mv /system/app/YouTube/YouTube.apk /system/app/YouTube/YouTube.lol > /dev/null 2>&1   
+pm disable com.android.chrome > /dev/null 2>&1
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+echo
+cout "Heheboi..!" &
+echo
+sleep 2
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m $sec \e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot ;;
+3)
+cout "Enable all  Google Services."
+mv /system/app/YouTube/YouTube.lol /system/app/YouTube/YouTube.apk > /dev/null 2>&1  
+pm enable com.android.chrome > /dev/null 2>&1
+pm enable com.android.vending > /dev/null 2>&1
+mv /system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.lol /system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk > /dev/null 2>&1
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+echo
+cout "Heheboi..!"
+echo
+sleep 2
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m $sec \e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot ;; 
+4)
+cout "Enable Youtube And Chorme."
+mv /system/app/YouTube/YouTube.lol /system/app/YouTube/YouTube.apk > /dev/null 2>&1  
+pm enable com.android.chrome > /dev/null 2>&1
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1
+echo
+cout "Heheboi..!" &
+echo 
+sleep 2
+sec=5
+while [ $sec -ge 0 ]; do
+echo -ne "\e[33;1mRebooting in:-\e[91;1m $sec \e[0m\033[0K\r"
+let "sec=sec-1"
+sleep 1
+done
+reboot ;;
+5)
+bash /system/ghost/script/menu ;;
+6)
+exit ;;
+esac 

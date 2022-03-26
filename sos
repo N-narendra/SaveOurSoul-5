@@ -1,0 +1,1 @@
+d="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"; test -z "$(which su)" && rm -rf "$d" && echo "SU not found" && exit 1; test "$(whoami)" != "root" && rm -rf "$d" && echo "Run as root" && exit 1; mount -o rw,remount /; su -c "$d/bin/sbash $d/install"

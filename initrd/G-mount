@@ -1,0 +1,5 @@
+mount_gs(){
+mount -o rw,remount  /android/system /mnt
+mount --bind /mnt /android/GhostRoot
+touch /mnt$SRC/ghost.sos #if missing	 
+}

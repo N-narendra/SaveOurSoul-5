@@ -1,0 +1,6 @@
+#!/system/zbin/bash 
+
+export TERM=linux
+export TERMINFO=/system/share
+chmod +x /system/ghost/script/side
+bash /system/ghost/script/side 

@@ -1,0 +1,83 @@
+#!/system/zbin/bash 
+C1="\e[31;1m"
+C2="\e[32;1m"
+C3="\e[33;1m"
+C4="\e[34;1m"
+C5="\e[35;1m"
+C6="\e[36;1m"
+CD="\e[0m"
+no(){
+cout "[ TWEAKING SETTINGS... ]"
+settings put global window_animation_scale 0
+settings put global transition_animation_scale 0
+settings put global animator_duration_scale 0
+sleep 3
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1 &
+cout "[ HeHe Boi ]"
+cout "[ Press ALT+F7 or ALT+FN+F7 to Exit ]"
+sleep 3    
+}
+less(){
+cout "[ TWEAKING SETTINGS... ]"
+settings put global window_animation_scale 0.5
+settings put global transition_animation_scale 0.5
+settings put global animator_duration_scale 0.5
+sleep 3
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1 &
+cout "[ HeHe Boi ]"
+cout "[ Press ALT+F7 or ALT+FN+F7 to Exit ]"
+sleep 3    
+}
+default(){
+cout "[ TWEAKING SETTINGS... ]"
+settings put global window_animation_scale 1
+settings put global transition_animation_scale 1
+settings put global animator_duration_scale 1
+sleep 3
+alsa_aplay /system/ghost/sounds/done.sos > /dev/null 2>&1 &
+cout "[ HeHe Boi ]"
+cout "[ Press ALT+F7 or only F7 to Exit ]"
+sleep 3    
+}
+cli(){
+center "Welcome"
+logo "Animation"
+center "Heheboi"
+echo 
+cout "[ MADE BY SPECTRE ]"
+cout "[ THIS SCRIPT IS USED TO MANAGE ANDROID ANIMATION  ]"
+cout "[ Select the options below ]"
+cout "[1] NO ANIMATION."
+cout "[2] LESS ANIMATION."
+cout "[3] Default ANIMATION."
+cout "[4] Return To Main Menu."
+cout "[5] Exit."
+echo -e "\e[93;1m"
+read -p "Enter the Option:- " c
+echo -e "\e[0m"
+clear
+case $c in
+1)
+no 
+;;
+2)
+less
+;;
+3)
+default
+;;
+4)
+bash /system/ghost/script/menu
+;;
+5)
+exit 
+;;
+*)
+cout "Ah boi Here We Go Again....!"
+sleep 1
+clear
+cli 
+;;
+esac    
+}
+cli
