@@ -37,9 +37,9 @@ https://github.com/busyloop/lolcat in ruby source.
 **How To build SOS-v5?**
 > ```bash
 > git clone https://github.com/N-narendra/SaveOurSoul-5
-> ```
 > cd SaveOurSoul-5
 > chmod +755 && bash makeme
+> ```
 
 **SOS-5 will be build in Output Folder as ```sos5```.**
 
@@ -48,9 +48,10 @@ https://github.com/busyloop/lolcat in ruby source.
 1] Copy ```sos5``` in Android-x86 data folder.
 2] Boot Android-x86 and Press Alt + f1.
 3] follow commands given below.
-> cd /data
+> ```cd /data
 > chmod +x sos5
 > ./sos5 
+> ``` 
 
 Now Select the partition where Android-x86 got installed and Sos-v5 will start installation on system.
 
