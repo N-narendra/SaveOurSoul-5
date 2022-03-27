@@ -30,9 +30,9 @@ https://github.com/busyloop/lolcat in ruby source.
 
 **What we used from Gearlock?**
 
-1] Gearlock Installer which help's to install on the system.
-2] Gealock Linux environment system.
-3] Gearlock Mount Filesystem.
+1) Gearlock Installer which help's to install on the system.
+2) Gealock Linux environment system.
+3) Gearlock Mount Filesystem.
 
 **How To build SOS-v5?**
 > ```bash
@@ -43,11 +43,13 @@ https://github.com/busyloop/lolcat in ruby source.
 
 **SOS-5 will be build in Output Folder as ```sos5```.**
 
+***Note:- SOS-v5 will work only in android 7 with 64bit cpu's (x86_64).***
+
 ***How to install ```sos5``` on Android-x86?***
 
-1] Copy ```sos5``` in Android-x86 data folder.
-2] Boot Android-x86 and Press Alt + f1.
-3] follow commands given below.
+1) Copy ```sos5``` in Android-x86 data folder.
+2) Boot Android-x86 and Press Alt + f1.
+3) follow commands given below.
 
 
 > ```bash
