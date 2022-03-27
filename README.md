@@ -43,7 +43,7 @@ https://github.com/busyloop/lolcat in ruby source.
 
 **SOS-5 will be build in Output Folder as ```sos5```.**
 
-**How to install ```sos5``` on Android-x86?**
+***How to install ```sos5``` on Android-x86?***
 
 1] Copy ```sos5``` in Android-x86 data folder.
 2] Boot Android-x86 and Press Alt + f1.
