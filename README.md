@@ -48,7 +48,8 @@ https://github.com/busyloop/lolcat in ruby source.
 1] Copy ```sos5``` in Android-x86 data folder.
 2] Boot Android-x86 and Press Alt + f1.
 3] follow commands given below.
-> ```cd /data
+> ```bash
+> cd /data
 > chmod +x sos5
 > ./sos5 
 > ``` 
