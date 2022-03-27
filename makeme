@@ -1,0 +1,39 @@
+#/bin/bash
+
+echo -e "\nBuilding SOS-v5 please wait....1\n"
+echo -e "Scripted By Ghost\n"
+sleep 1
+
+function ch () {
+chmod +755 "$1"
+}
+
+function rs (){
+    rsync -a "$@"
+}
+
+ch sos;
+ch install;
+
+echo -e "Packing SOS as playload..!\n" 
+mkdir -m755 output
+rs bin output/
+rs engine output/
+rs GhostRoot output/
+rs initrd output/
+rs sos output/
+rs install output/
+
+echo -e "Tar process started..!\n"
+sleep 1
+tar -pzcf ./output/Star ./output/* 
+cat ./output/Star | base64 > ./output/Sbase
+cp payload ./output
+cd output
+cat payload Sbase > sos5
+chmod +755 sos5 
+cd ..
+rm -r ./output/Sbase 
+rm -r ./output/Star 
+echo -e "SOS-v5 has been builded sucessfully check out sos5 in Outfolder...!\n"
+sleep 1

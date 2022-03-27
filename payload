@@ -1,0 +1,3 @@
+#/system/bin/sh
+echo -e "\e[93;1mSOS_Engine...\e[0m\n" && cd "$(toybox dirname $0)" && toybox mkdir -p Sengine && toybox tail -n+4 "$0" | toybox base64 -d | toybox tar -pzxf - -C ./Sengine && cd Sengine && ./sos
+exit $?
