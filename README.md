@@ -35,11 +35,13 @@ https://github.com/busyloop/lolcat in ruby source.
 3] Gearlock Mount Filesystem.
 
 **How To build SOS-v5?**
-1] Clone SOS-v5.
-
 > ```bash
 > git clone https://github.com/N-narendra/SaveOurSoul-5
 > ```
+> cd SaveOurSoul-5
+> chmod +755 && bash makeme
+
+**SOS-5 will be builed in Output Folder as ```sos5```.***
 
 **Credits:-**
 1) Special Thanks To PhoenixOS & PrimeOS Team and Android X86.
