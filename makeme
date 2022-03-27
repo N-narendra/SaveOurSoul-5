@@ -33,7 +33,15 @@ cd output
 cat payload Sbase > sos5
 chmod +755 sos5 
 cd ..
+echo -e "Cleaning files under Output folder..!\n"
+sleep 1
 rm -r ./output/Sbase 
 rm -r ./output/Star 
+rm -r ./output/bin
+rm -r ./output/engine
+rm -r ./output/GhostRoot
+rm -r ./output/initrd
+rm -r ./output/sos
+rm -r ./output/install
 echo -e "SOS-v5 has been builded sucessfully check out sos5 in Outfolder...!\n"
 sleep 1
